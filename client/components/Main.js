@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import {
-  Route,
   Link
 } from 'react-router-dom'
+import RouteWithProps from '../extensions/RouteWithProps'
 import PhotoGrid from './PhotoGrid'
 import PhotoView from './PhotoView'
 
@@ -15,8 +15,8 @@ class Main extends Component {
                     <Link to="/">Reduxstagram</Link>
                 </h1>
 
-                <Route exact path="/" component={PhotoGrid} />
-                <Route path="/photos/:id" component={PhotoView} />
+                <RouteWithProps exact path="/" component={PhotoGrid} props={this.props}  />
+                <RouteWithProps path="/photos/:id" component={PhotoView} props={this.props} />
             </div>
         )
     }
